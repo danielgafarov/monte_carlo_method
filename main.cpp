@@ -42,8 +42,6 @@ int main(int argc, char *argv[]) {
     for (char& c : zettel){
         zettel_split.push_back(c - '0');
     }
-    for(char i : zettel_split)
-        std::cout << i;
     double result = monte_carlo(r,k,n,1000000,false,zettel_split);
     std::cout << "Sie haben mit eine Million simulierten Versuchen " << result * 1000000 << "-mal " << r << " Richtige gehabt.\n" 
     << "Wahrscheinlichkeit fuer " << r << " Richtige bei " << k << "-aus-" << n <<"-Lotto: " << result * 100 << "%\n"
