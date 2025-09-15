@@ -30,9 +30,9 @@ double monte_carlo(int r, int k, int n, int N, bool typ, std::vector<int> zettel
 }
 
 int main(int argc, char *argv[]) {
-    int r = 6, k = 6,n = 49;
+    int r = 3, k = 6,n = 49;
     std::string zettel = "123456";
-    if(argc > 1) {
+    if(argc == 5) {
         r = std::stoi(argv[1]);
         k = std::stoi(argv[2]);
         n = std::stoi(argv[3]);
