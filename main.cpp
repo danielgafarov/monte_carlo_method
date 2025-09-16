@@ -38,6 +38,10 @@ int main(int argc, char *argv[]) {
         n = std::stoi(argv[3]);
         zettel = argv[4];
     }
+    if(!(r <= k && k <= n && zettel.length() == k)) {
+        std::cout << "Falsche Eingabe, bitte beachten sie, dass \"Richtige\" nicht gröser als \"Gezogene Kugeln\" sein darf und \"Gezogene Kugeln\" nicht gröser als \"Kugeln insgesamt\" sein darf. Die Länge des Tippzettels sollte der Menge der gezogenen Kugeln entsprechen.\n";
+        return 0;
+    }
     std::vector<int> zettel_split = {};
     for (char& c : zettel){
         zettel_split.push_back(c - '0');
