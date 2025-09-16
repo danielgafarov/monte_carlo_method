@@ -3,6 +3,7 @@
 #include <time.h>
 #include "CLotto.h"
 #include <fstream>
+#include <sstream>
 
 double monte_carlo(int r, int k, int n, int N, bool typ, std::vector<int> zettel)
 {
@@ -31,20 +32,23 @@ double monte_carlo(int r, int k, int n, int N, bool typ, std::vector<int> zettel
 
 int main(int argc, char *argv[]) {
     int r = 3, k = 6,n = 49;
-    std::string zettel = "123456";
+    std::string zettel = "1,2,3,4,5,6";
     if(argc == 5) {
         r = std::stoi(argv[1]);
         k = std::stoi(argv[2]);
         n = std::stoi(argv[3]);
         zettel = argv[4];
     }
-    if(!(r <= k && k <= n && zettel.length() == k)) {
-        std::cout << "Falsche Eingabe, bitte beachten sie, dass \"Richtige\" nicht gröser als \"Gezogene Kugeln\" sein darf und \"Gezogene Kugeln\" nicht gröser als \"Kugeln insgesamt\" sein darf. Die Länge des Tippzettels sollte der Menge der gezogenen Kugeln entsprechen.\n";
-        return 0;
-    }
     std::vector<int> zettel_split = {};
-    for (char& c : zettel){
-        zettel_split.push_back(c - '0');
+    std::stringstream ss(zettel);
+    for (int i; ss >> i;) {
+        zettel_split.push_back(i);
+        if (ss.peek() == ',')
+            ss.ignore();
+    }
+    if(!(r <= k && k <= n && zettel_split.size() == k)) {
+        std::cout << "Falsche Eingabe, bitte beachten sie, dass \"Richtige\" nicht gröser als \"Gezogene Kugeln\" sein darf und \"Gezogene Kugeln\" nicht gröser als \"Kugeln insgesamt\" sein darf. Die Anzahl der getippten Zahlen sollte der Menge der gezogenen Kugeln entsprechen.\n";
+        return 0;
     }
     double result = monte_carlo(r,k,n,1000000,false,zettel_split);
     std::cout << "Sie haben mit eine Million simulierten Versuchen " << result * 1000000 << "-mal " << r << " Richtige gehabt.\n" 
