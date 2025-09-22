@@ -47,7 +47,7 @@ int main(int argc, char *argv[]) {
             ss.ignore();
     }
     if(!(r <= k && k <= n && zettel_split.size() == k)) {
-        std::cout << "Falsche Eingabe, bitte beachten sie, dass \"Richtige\" nicht gröser als \"Gezogene Kugeln\" sein darf und \"Gezogene Kugeln\" nicht gröser als \"Kugeln insgesamt\" sein darf. Die Anzahl der getippten Zahlen sollte der Menge der gezogenen Kugeln entsprechen und einzelne Zahlen müssen mit Kommas getrennt werden.\n";
+        std::cout << "Falsche Eingabe, bitte beachten sie, dass \"Richtige\" nicht größer als \"Gezogene Kugeln\" sein darf und \"Gezogene Kugeln\" nicht größer als \"Kugeln insgesamt\" sein darf. Die Anzahl der getippten Zahlen sollte der Menge der gezogenen Kugeln entsprechen und einzelne Zahlen müssen mit Kommas getrennt werden.\n";
         return 0;
     }
     double result = monte_carlo(r,k,n,1000000,false,zettel_split);
