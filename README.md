@@ -1,4 +1,6 @@
-# monte_carlo_method
+# Monte Carlo Simulation
 [![de](https://img.shields.io/badge/lang-de-red.svg)](https://github.com/danielgafarov/monte_carlo_method/blob/main/README-de.md)
 
-The Monte Carlo method uses random sampling to obtain numerical results for either unsolvable problems or hard to solve problems. In more simple terms, it simulates a situation so often that the probabilities for each outcome/result can be deduced from how often they happen.
+**Monte Carlo simulation** uses random sampling to find numerical solutions for complex or analytically challenging problems. By simulating a scenario repeatedly, the probabilities of various outcomes can be reliably derived from their relative frequencies.
+
+In this project, the Monte Carlo method is applied to calculate the winning probabilities for different lottery variants.
